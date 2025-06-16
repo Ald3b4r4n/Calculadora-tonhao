@@ -1,0 +1,21 @@
+{
+  "name": "Calculadora Tonhão",
+  "short_name": "Tonhão",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#00c853",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "favicon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

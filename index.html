@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Tonhão</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Ícones do App -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Estilo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGO -->
+    <img src="favicon-96x96.png" alt="Logo Calculadora Tonhão" class="logo">
+
+    <h1>Calculadora Tonhão</h1>
+
+    <h2>Cálculo de Corrida Particular (Taxímetro)</h2>
+    <input type="number" id="kmBusca" placeholder="Km para buscar o passageiro">
+    <input type="number" id="kmCorrida" placeholder="Km da corrida">
+    <button onclick="calcularCorrida()">Calcular Valor da Corrida</button>
+    <div class="output" id="resultadoCorrida"></div>
+
+    <hr>
+
+    <h2>Somatório das Corridas do Dia</h2>
+    <input type="number" id="uber" placeholder="Uber">
+    <input type="number" id="iupe" placeholder="IUPE">
+    <input type="number" id="app99" placeholder="99">
+    <input type="number" id="indriver" placeholder="Indriver">
+    <input type="number" id="particular" placeholder="Corrida Particular">
+    <button onclick="somarCorridas()">Somar Corridas do Dia</button>
+    <div class="output" id="resultadoCorridas"></div>
+
+    <script>
+        function calcularCorrida() {
+            const kmBusca = parseFloat(document.getElementById('kmBusca').value) || 0;
+            const kmCorrida = parseFloat(document.getElementById('kmCorrida').value) || 0;
+            const totalKm = kmBusca + kmCorrida;
+            const valorFinal = totalKm * 3.5;
+            document.getElementById('resultadoCorrida').innerText =
+                `Distância Total: ${totalKm.toFixed(2)} km\nValor: R$ ${valorFinal.toFixed(2)}`;
+        }
+
+        function somarCorridas() {
+            const uber = parseFloat(document.getElementById('uber').value) || 0;
+            const iupe = parseFloat(document.getElementById('iupe').value) || 0;
+            const app99 = parseFloat(document.getElementById('app99').value) || 0;
+            const indriver = parseFloat(document.getElementById('indriver').value) || 0;
+            const particular = parseFloat(document.getElementById('particular').value) || 0;
+            const total = uber + iupe + app99 + indriver + particular;
+            document.getElementById('resultadoCorridas').innerText =
+                `Total das Corridas: R$ ${total.toFixed(2)}`;
+        }
+
+        // Service Worker para PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function(registration) {
+                    console.log('Service Worker registrado com sucesso:', registration.scope);
+                })
+                .catch(function(error) {
+                    console.log('Falha ao registrar o Service Worker:', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
