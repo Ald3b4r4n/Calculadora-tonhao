@@ -1,0 +1,8 @@
+{
+  "name": "XmartDriver",
+  "short_name": "XmartDriver",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#820ad1",
+  "theme_color": "#820ad1"
+}

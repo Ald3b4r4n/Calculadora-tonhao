@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XmartDriver</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>XmartDriver</h1>
+
+  <nav>
+    <button onclick="toggleTab('ganhosDiarios')">Ganhos Diários</button>
+    <button onclick="toggleTab('ganhosPeriodo')">Ganhos por Período</button>
+    <button onclick="toggleTab('lucroLiquido')">Lucro Líquido</button>
+    <button onclick="toggleTab('taximetro')">Taxímetro</button>
+    <button onclick="toggleTab('combustivel')">Gastos com Combustível</button>
+  </nav>
+
+  <img id="imagemInicial" src="planodf.png" alt="Imagem Inicial">
+
+  <section id="ganhosDiarios" class="aba">
+    <h2>Ganhos Diários</h2>
+    <input type="number" id="uber" placeholder="Uber">
+    <input type="number" id="noveNove" placeholder="99">
+    <input type="number" id="indriver" placeholder="Indriver">
+    <input type="number" id="iupe" placeholder="IUPE">
+    <input type="number" id="rotas" placeholder="Rotas">
+    <input type="number" id="outras" placeholder="Outras">
+    <button onclick="salvarGanhosDiarios()">Salvar</button>
+    <button onclick="limparGanhosDiarios()">Limpar Memória Diária</button>
+  </section>
+
+  <section id="ganhosPeriodo" class="aba">
+    <h2>Ganhos por Período</h2>
+    <select id="filtroPeriodo">
+      <option value="diario">Diário</option>
+      <option value="semanal">Semanal</option>
+      <option value="mensal">Mensal</option>
+      <option value="anual">Anual</option>
+    </select>
+    <button onclick="consultarGanhos()">Consultar</button>
+    <button onclick="limparTodosGanhos()">Limpar Todos os Ganhos</button>
+    <div class="output" id="resultadoPeriodo"></div>
+  </section>
+
+  <section id="lucroLiquido" class="aba">
+    <h2>Lucro Líquido</h2>
+    <div class="output" id="resultadoLucro"></div>
+    <div class="output" id="dividaIUPE"></div>
+  </section>
+
+  <section id="taximetro" class="aba">
+    <h2>Taxímetro</h2>
+    <input type="number" id="kmBusca" placeholder="Km de Busca">
+    <input type="number" id="kmCorrida" placeholder="Km da Corrida">
+    <button onclick="calcularTaximetro()">Calcular</button>
+    <button onclick="limparTaximetro()">Limpar</button>
+    <div class="output" id="resultadoTaximetro"></div>
+  </section>
+
+  <section id="combustivel" class="aba">
+    <h2>Gastos com Combustível</h2>
+    <input type="number" id="gastoCombustivel" placeholder="Valor gasto">
+    <button onclick="salvarCombustivel()">Salvar</button>
+    <button onclick="limparCombustivel()">Limpar Gastos do Dia</button>
+    <div class="output" id="resultadoCombustivel"></div>
+    <div class="output" id="tabelaCombustivel"></div>
+  </section>
+
+  <footer>Versão 1.0</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
