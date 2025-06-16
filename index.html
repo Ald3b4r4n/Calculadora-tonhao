@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XmartDriver</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h1>XmartDriver</h1>
+  </header>
+
+  <div class="botoes">
+    <button onclick="toggleTab('ganhosDiarios')">Ganhos Diários</button>
+    <button onclick="toggleTab('taximetro')">Taxímetro</button>
+    <button onclick="toggleTab('lucroLiquido')">Lucro Líquido</button>
+    <button onclick="toggleTab('gastosCombustivel')">Gastos com Combustível</button>
+    <button onclick="toggleTab('ganhosPeriodo')">Ganhos por Período</button>
+  </div>
+
+  <img src="planodf.png" id="imagemPlanoDF">
+
+  <div id="ganhosDiarios" class="aba">
+    <h2>Ganhos Diários</h2>
+    <input id="uber" placeholder="Uber"><br>
+    <input id="noveNove" placeholder="99"><br>
+    <input id="indriver" placeholder="Indriver"><br>
+    <input id="iupe" placeholder="IUPE"><br>
+    <input id="rotas" placeholder="Rotas"><br>
+    <input id="outras" placeholder="Outras"><br>
+    <button onclick="salvarGanhosDiarios()">Salvar</button>
+    <button onclick="limparGanhosDiarios()">Limpar Memória</button>
+  </div>
+
+  <div id="taximetro" class="aba">
+    <h2>Taxímetro</h2>
+    <input id="kmBusca" placeholder="Km até o cliente"><br>
+    <input id="kmCorrida" placeholder="Km da corrida"><br>
+    <button onclick="calcularTaximetro()">Calcular</button>
+    <button onclick="limparTaximetro()">Limpar</button>
+    <div id="resultadoTaximetro"></div>
+  </div>
+
+  <div id="lucroLiquido" class="aba">
+    <h2>Lucro Líquido</h2>
+    <div id="resultadoLucro"></div>
+    <div id="dividaIUPE"></div>
+  </div>
+
+  <div id="gastosCombustivel" class="aba">
+    <h2>Gastos com Combustível</h2>
+    <input id="gastoCombustivel" placeholder="Valor gasto"><br>
+    <button onclick="salvarCombustivel()">Salvar</button>
+    <button onclick="limparCombustivel()">Limpar Memória</button>
+    <div id="resultadoCombustivel"></div>
+  </div>
+
+  <div id="ganhosPeriodo" class="aba">
+    <h2>Ganhos por Período</h2>
+    <select id="filtroPeriodo">
+      <option value="diario">Diário</option>
+      <option value="semanal">Semanal</option>
+      <option value="mensal">Mensal</option>
+      <option value="anual">Anual</option>
+    </select>
+    <button onclick="consultarGanhos()">Consultar</button>
+    <button onclick="limparMemoriaGanhosPeriodo()">Limpar Memória</button>
+    <div id="resultadoPeriodo"></div>
+  </div>
+
+  <footer>
+    <p>Versão 1.0</p>
+  </footer>
+
+</body>
+</html>
