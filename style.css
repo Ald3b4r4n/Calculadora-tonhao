@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #820ad1, #4a0072);
+  color: white;
+  text-align: center;
+}
+
+header h1 {
+  margin: 10px 0;
+}
+
+.botoes button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff33;
+  color: white;
+  cursor: pointer;
+}
+
+.botoes button:hover {
+  background-color: #ffffff55;
+}
+
+.aba {
+  display: none;
+  margin-top: 15px;
+}
+
+input, select {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  width: 80%;
+}
+
+button {
+  margin: 5px;
+}
+
+#imagemPlanoDF {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #ffffff22;
+  color: white;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid white;
+}
+
+footer {
+  margin-top: 30px;
+  color: white;
+  font-size: 0.9em;
+}
