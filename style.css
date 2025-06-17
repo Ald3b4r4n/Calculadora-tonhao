@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(180deg, #820ad1, #12003f);
+  color: #fff;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+}
+
+#fundoInicial {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+nav button {
+  flex: 1;
+  min-width: 120px;
+  background-color: #fff;
+  color: #820ad1;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.aba {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: none;
+  background: #eee;
+  color: #000;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  background: #fff;
+  color: #820ad1;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.output {
+  margin-top: 10px;
+  background: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+h3 {
+  margin-top: 20px;
+}
