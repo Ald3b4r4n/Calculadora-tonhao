@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XmartDriver 1.04</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon-96x96.png" type="image/png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>XmartDriver</h1>
+</header>
+
+<img id="fundoInicial" src="fundo.png" alt="Fundo Inicial">
+
+<nav>
+  <button onclick="toggleTab('ganhosDiarios')">Ganhos Diários</button>
+  <button onclick="toggleTab('ganhosPeriodo')">Ganhos por Período</button>
+  <button onclick="toggleTab('combustivel')">Gastos com Combustível</button>
+  <button onclick="toggleTab('lucroLiquido')">Lucro Líquido</button>
+  <button onclick="toggleTab('taximetro')">Taxímetro</button>
+  <button onclick="toggleTab('recibo')">Recibo</button>
+</nav>
+
+<!-- Aba Ganhos Diários -->
+<div id="ganhosDiarios" class="aba">
+  <h2>Ganhos Diários</h2>
+  <input id="uber" placeholder="Uber (R$)">
+  <input id="noveNove" placeholder="99 (R$)">
+  <input id="indriver" placeholder="Indriver (R$)">
+  <input id="iupe" placeholder="IUPE (R$)">
+  <input id="rotas" placeholder="Rotas (R$)">
+  <input id="outras" placeholder="Outras (R$)">
+  <button onclick="salvarGanhosDiarios()">Salvar Ganhos</button>
+  <button onclick="limparGanhosDiarios()">Limpar Ganhos</button>
+</div>
+
+<!-- Aba Ganhos por Período -->
+<div id="ganhosPeriodo" class="aba">
+  <h2>Ganhos por Período</h2>
+  <select id="filtroPeriodo" onchange="consultarGanhos()">
+  <option value="diario">Hoje</option>
+  <option value="semanal">Últimos 7 dias</option>
+  <option value="mensal">Este mês</option>
+  <option value="todos">Todos</option>
+</select>
+
+  <button onclick="consultarGanhos()">Consultar</button>
+  <div id="resultadoPeriodo" class="output"></div>
+  <canvas id="graficoGanhosLinha" style="max-width: 100%; margin-top: 20px;"></canvas>
+</div>
+
+<!-- Aba Combustível -->
+<div id="combustivel" class="aba">
+  <h2>Gastos com Combustível</h2>
+  <input id="gastoCombustivel" placeholder="Valor gasto (R$)">
+  <button onclick="salvarCombustivel()">Salvar</button>
+  <button onclick="limparTodosCombustiveis()">Limpar Todos</button>
+  <div id="tabelaCombustivel"></div>
+</div>
+
+<!-- Aba Lucro Líquido -->
+<div id="lucroLiquido" class="aba">
+  <h2>Lucro Líquido</h2>
+  <button onclick="calcularLucroLiquido()">Calcular Lucro</button>
+  <div id="resultadoLucro" class="output"></div>
+  <div id="dividaIUPE" class="output"></div>
+</div>
+
+<!-- Aba Taxímetro -->
+<div id="taximetro" class="aba">
+  <h2>Taxímetro</h2>
+
+  <!-- Cálculo da corrida -->
+  <h3>Calcular Valor da Corrida</h3>
+  <input id="kmBusca" placeholder="Km de busca">
+  <input id="kmCorrida" placeholder="Km da corrida">
+  <button onclick="calcularTaximetro()">Calcular Valor</button>
+  <button onclick="limparTaximetro()">Limpar</button>
+  <div id="resultadoTaximetro" class="output"></div>
+
+  <!-- Mapa e Rotas -->
+  <h3>Mapa e Rotas</h3>
+  <input id="localEmbarque" placeholder="Local de embarque do passageiro">
+  <input id="destinoFinal" placeholder="Destino final">
+  <button onclick="calcularRotaCompleta()">Calcular Rota Completa</button>
+  <button onclick="navegarWaze('embarque')" id="btnWazeEmbarque" style="display: none;">Navegar até Passageiro</button>
+<button onclick="navegarWaze('destino')" id="btnWazeDestino" style="display: none;">Navegar até Destino</button>
+  <button onclick="limparRota()">Limpar Rota</button>
+  <div id="mapa" style="height: 300px; margin-top: 10px;"></div>
+</div>
+
+<!-- Aba Recibo -->
+<div id="recibo" class="aba">
+  <h2>Gerar Recibo</h2>
+  <input id="nomeMotorista" placeholder="Nome do Motorista">
+  <input id="cpfMotorista" placeholder="CPF do Motorista">
+  <input id="placaVeiculo" placeholder="Placa do Veículo">
+  <input id="valorRecibo" placeholder="Valor do Recibo (R$)" readonly>
+  <button onclick="gerarRecibo()">Gerar Recibo</button>
+  <button onclick="enviarWhatsApp()" style="background-color: #25D366; color: white;">Enviar por WhatsApp</button>
+  <div id="previewRecibo" style="margin-top: 20px; background: white; color: black; padding: 20px; border-radius: 10px; display: none;"></div>
+</div>
+
+<footer>
+  Versão 1.04 - Desenvolvido por Antônio Rafael
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
